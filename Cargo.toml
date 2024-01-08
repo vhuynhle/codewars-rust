@@ -1,3 +1,8 @@
 [workspace]
 resolver = "2"
-members = ["max_diff_in_order", "rot13", "secret-string"]
+members = [
+    "max_diff_in_order",
+    "number-as-digit-square-sum",
+    "rot13",
+    "secret-string",
+]
