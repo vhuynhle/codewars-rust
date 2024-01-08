@@ -1,28 +1,31 @@
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    hash::Hash,
+};
 
 /// Graph using adjacency list representation
-struct Graph {
-    nodes: HashMap<char, Vec<char>>,
+struct Graph<T> {
+    nodes: HashMap<T, Vec<T>>,
 }
 
-impl Graph {
+impl<T: Eq + Hash + Copy> Graph<T> {
     fn new() -> Self {
         Self {
-            nodes: HashMap::<char, Vec<char>>::new(),
+            nodes: HashMap::<T, Vec<T>>::new(),
         }
     }
 
     /// Insert a directed edge to the graph
-    fn insert(&mut self, c1: char, c2: char) {
-        let entry = self.nodes.entry(c1).or_default();
-        if !entry.contains(&c2) {
-            entry.push(c2)
+    fn insert(&mut self, start_node: T, end_node: T) {
+        let entry = self.nodes.entry(start_node).or_default();
+        if !entry.contains(&end_node) {
+            entry.push(end_node)
         }
-        self.nodes.entry(c2).or_default();
+        self.nodes.entry(end_node).or_default();
     }
 
     /// Depth-first-search from a given node
-    fn dfs(&self, n: char, visited: &mut HashSet<char>, sorted: &mut Vec<char>) {
+    fn dfs(&self, n: T, visited: &mut HashSet<T>, sorted: &mut Vec<T>) {
         if visited.contains(&n) {
             return;
         }
@@ -37,9 +40,9 @@ impl Graph {
     }
 
     /// Perform topological sort
-    fn topological_sort(&self) -> Vec<char> {
-        let mut visited = HashSet::<char>::new();
-        let mut sorted = Vec::<char>::new();
+    fn topological_sort(&self) -> Vec<T> {
+        let mut visited = HashSet::<T>::new();
+        let mut sorted = Vec::<T>::new();
 
         for node in self.nodes.keys() {
             self.dfs(*node, &mut visited, &mut sorted)
