@@ -1,41 +1,25 @@
-use std::iter::{self, from_fn, Iterator};
-
-fn chunk<I>(iter: impl IntoIterator<Item = I>, chunk_size: usize) -> impl Iterator<Item = Vec<I>> {
-    let mut iter = iter.into_iter();
-    from_fn(move || {
-        let v: Vec<I> = iter.by_ref().take(chunk_size).collect();
-        if v.is_empty() {
-            None
-        } else {
-            Some(v)
-        }
-    })
-}
+use std::iter::Iterator;
 
 pub fn separate_liquids(glass: &[Vec<char>]) -> Vec<Vec<char>> {
     if glass.is_empty() {
         return vec![];
     }
 
-    let mut blob_counts = [0; 4];
-    for orig_layer in glass {
-        for blob in orig_layer {
-            match *blob {
-                'O' => blob_counts[0] += 1,
-                'A' => blob_counts[1] += 1,
-                'W' => blob_counts[2] += 1,
-                _ => blob_counts[3] += 1,
-            }
-        }
-    }
-
     let layer_width = glass[0].len();
-    let iter = blob_counts
+    let mut blobs = glass
         .iter()
-        .zip(&['O', 'A', 'W', 'H'])
-        .flat_map(|(count, blob)| iter::repeat(*blob).take(*count));
+        .flat_map(|v| v.iter().cloned())
+        .collect::<Vec<char>>();
 
-    chunk(iter, layer_width).collect()
+    blobs.sort_by_key(|&k| match k {
+        'H' => 136, // Honey
+        'W' => 100, // Water
+        'A' => 87,  // Alcohol
+        'O' => 80,  // Oil
+        _ => 0,     // Unknown substance
+    });
+
+    blobs.chunks(layer_width).map(|v| v.to_vec()).collect()
 }
 
 #[cfg(test)]
