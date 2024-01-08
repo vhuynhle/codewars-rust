@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = [
+members = [ "dont-drink-the-water",
     "max_diff_in_order",
     "number-as-digit-square-sum",
     "rot13",
