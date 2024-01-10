@@ -2,7 +2,7 @@
 resolver = "2"
 members = [ "camel-case", "dont-drink-the-water", "last-digit-huge-number",
     "max_diff_in_order",
-    "number-as-digit-square-sum",
+    "number-as-digit-square-sum", "popcount",
     "rot13",
     "secret-string",
 ]
