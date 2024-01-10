@@ -7,17 +7,12 @@ pub fn to_camel_case(s: &str) -> String {
 
 fn camel_case_word(w: &str, first_word: bool) -> String {
     if w.is_empty() {
-        return "".to_string();
-    }
-
-    let first_char = w.chars().next().unwrap();
-    let first_char_str: String = if first_word {
-        first_char.to_string()
+        "".to_string()
+    } else if first_word {
+        w[..1].to_string() + &w[1..].to_lowercase()
     } else {
-        first_char.to_uppercase().collect()
-    };
-    let rest = w[1..].to_lowercase();
-    first_char_str + (&rest)
+        w[..1].to_uppercase() + &w[1..].to_lowercase()
+    }
 }
 
 #[cfg(test)]
