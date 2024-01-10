@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = [ "dont-drink-the-water", "last-digit-huge-number",
+members = [ "camel-case", "dont-drink-the-water", "last-digit-huge-number",
     "max_diff_in_order",
     "number-as-digit-square-sum",
     "rot13",
