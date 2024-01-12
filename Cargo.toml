@@ -4,5 +4,5 @@ members = [ "camel-case", "dont-drink-the-water", "exp_sum", "integer-partitions
     "max_diff_in_order",
     "number-as-digit-square-sum", "popcount", "reverse-string",
     "rot13",
-    "secret-string",
+    "secret-string", "string-to-number",
 ]
