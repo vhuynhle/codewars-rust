@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = [ "camel-case", "dont-drink-the-water", "exp_sum", "integer-partitions", "last-digit-huge-number",
-    "max_diff_in_order",
+    "max_diff_in_order", "min-number",
     "number-as-digit-square-sum", "popcount", "reverse-string",
     "rot13",
     "secret-string", "string-to-number",
