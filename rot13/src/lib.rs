@@ -1,8 +1,8 @@
 fn rot13_char(c: char) -> char {
-    if ('A'..='Z').contains(&c) {
-        ((c as u8 - 'A' as u8 + 13) % 26 + 'A' as u8) as char
-    } else if ('a'..='z').contains(&c) {
-        ((c as u8 - 'a' as u8 + 13) % 26 + 'a' as u8) as char
+    if c.is_ascii_uppercase() {
+        ((c as u8 - b'A' + 13) % 26 + b'A') as char
+    } else if c.is_ascii_lowercase() {
+        ((c as u8 - b'a' + 13) % 26 + b'a') as char
     } else {
         c
     }

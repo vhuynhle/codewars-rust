@@ -1,3 +1,3 @@
-fn reverse_string(phrase: &str) -> String {
+pub fn reverse_string(phrase: &str) -> String {
     phrase.chars().rev().collect()
 }

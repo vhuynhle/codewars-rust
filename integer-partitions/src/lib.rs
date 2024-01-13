@@ -7,7 +7,7 @@ pub fn partitions(n: u32) -> usize {
         cache.insert((0, i), 1);
     }
 
-    return cached_partitions(n, n, &mut cache);
+     cached_partitions(n, n, &mut cache)
 }
 
 fn cached_partitions(n: u32, component_cap: u32, cache: &mut HashMap<(u32, u32), usize>) -> usize {
@@ -24,7 +24,7 @@ fn cached_partitions(n: u32, component_cap: u32, cache: &mut HashMap<(u32, u32),
     let res = partitions_same_cap + partitions_with_smaller_cap;
     cache.insert((n, component_cap), res);
 
-    return res;
+    res
 }
 
 #[cfg(test)]
@@ -53,6 +53,6 @@ mod tests {
 
     #[test]
     fn basic_test_200() {
-        assert_eq!(partitions(200),  3972999029388);
+        assert_eq!(partitions(200), 3972999029388);
     }
 }

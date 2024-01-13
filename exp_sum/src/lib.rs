@@ -7,7 +7,7 @@ pub fn exp_sum(n: u64) -> u64 {
         cache.insert((0, i), 1);
     }
 
-    return cached_partitions(n, n, &mut cache);
+    cached_partitions(n, n, &mut cache)
 }
 
 fn cached_partitions(n: u64, component_cap: u64, cache: &mut HashMap<(u64, u64), u64>) -> u64 {
@@ -24,7 +24,7 @@ fn cached_partitions(n: u64, component_cap: u64, cache: &mut HashMap<(u64, u64),
     let res = partitions_same_cap + partitions_with_smaller_cap;
     cache.insert((n, component_cap), res);
 
-    return res;
+    res
 }
 
 #[cfg(test)]
