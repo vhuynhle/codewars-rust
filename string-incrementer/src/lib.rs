@@ -1,6 +1,7 @@
 use std::{fmt::Display, str::FromStr};
 
 pub mod v2;
+pub mod v3;
 
 pub fn increment_string(s: &str) -> String {
     let number_length = s
