@@ -1,0 +1,10 @@
+#+TITLE: Break camelCase
+
+Complete the solution so that the function will break up camel casing, using a space between words.
+Example
+
+#+begin_src
+"camelCasing"  =>  "camel Casing"
+"identifier"   =>  "identifier"
+""             =>  ""
+#+end_src
