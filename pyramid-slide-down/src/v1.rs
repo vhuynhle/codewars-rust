@@ -7,7 +7,7 @@ pub fn longest_slide_down(pyramid: &[Vec<u16>]) -> u16 {
         for i in (1..row_index).rev() {
             f[i] = f[i - 1].max(f[i]) + row[i];
         }
-        f[0] = f[0] + row[0];
+        f[0] += row[0];
     }
 
     *f.iter().max().unwrap()
