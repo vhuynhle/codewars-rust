@@ -1,7 +1,7 @@
 [workspace]
 resolver = "2"
 members = [ "break-camel-case",
-    "camel-case",
+    "camel-case", "diamond",
     "dont-drink-the-water",
     "exp_sum",
     "integer-partitions",
