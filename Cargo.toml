@@ -2,7 +2,7 @@
 resolver = "2"
 members = [ "break-camel-case",
     "camel-case", "diamond",
-    "dont-drink-the-water",
+    "dont-drink-the-water", "eureka-number",
     "exp_sum",
     "integer-partitions",
     "last-digit-huge-number",
